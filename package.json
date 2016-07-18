@@ -1,0 +1,35 @@
+{
+  "name": "fh-reportingclient",
+  "keywords": [
+    "fh-reporting",
+    "feedhenry"
+  ],
+  "description": "FH Reporting Client",
+  "version": "0.5.0",
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib/fh-reporting.js",
+  "scripts": {
+    "test": "grunt eslint fh-test"
+  },
+  "engines": {
+    "node": ">=0.4.12"
+  },
+  "dependencies": {
+    "async": "1.5.2",
+    "fh-mbaas-client": "0.12.0",
+    "request": "2.9.100"
+  },
+  "man": "./man/fh-reportingclient.1",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "eslint": "^2.7.0",
+    "grunt": "^1.0.1",
+    "grunt-fh-build": "^1.0.1",
+    "istanbul": "^0.4.3",
+    "turbo-test-runner": "~0.3",
+    "proxyquire": "0.4.1",
+    "sinon": "^1.17.1"
+  }
+}
