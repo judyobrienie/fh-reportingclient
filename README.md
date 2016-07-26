@@ -20,7 +20,7 @@ The Reporting Client currently relies on the following being installed on a host
 The Reporting Client currently operates it 2 ways:
 
 1. send a message to the Reporting Server for storage. (And eventual aggregation into a metrics report)
-2. save the message in a file. (Which is expected to be batch imported into the Reporting Server, similar to the way that Millicore is currently operating) 
+2. save the message in a file. (Which is expected to be batch imported into the Reporting Server, similar to the way that Millicore is currently operating)
 
 ## Installation
 
