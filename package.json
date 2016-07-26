@@ -5,7 +5,7 @@
     "feedhenry"
   ],
   "description": "FH Reporting Client",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "directories": {
     "lib": "./lib"
   },
@@ -19,7 +19,7 @@
   "dependencies": {
     "async": "1.5.2",
     "fh-mbaas-client": "0.12.0",
-    "request": "2.9.100"
+    "request": "2.68.0"
   },
   "man": "./man/fh-reportingclient.1",
   "license": "Apache-2.0",
