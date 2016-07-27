@@ -1,6 +1,14 @@
 fh-reportingclient -- The FeedHenry Reporting Client
 ===============================================
 
+[![npm package](https://nodei.co/npm/fh-reportingclient.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/fh-reportingclient/)
+
+[![Build status](https://img.shields.io/travis/feedhenry/fh-reportingclient/master.svg?style=flat-square)](https://travis-ci.org/feedhenry/fh-reportingclient)
+[![Dependency Status](https://img.shields.io/david/feedhenry/fh-reportingclient.svg?style=flat-square)](https://david-dm.org/feedhenry/fh-reportingclient)
+[![Known Vulnerabilities](https://snyk.io/test/npm/fh-reportingclient/badge.svg?style=flat-square)](https://snyk.io/test/npm/fh-reportingclient)
+
+
+
 ## DESCRIPTION
 
 The Feedhenry Reporting Client is a client library for Node.js applications that allows messages to be sent to a Feedhenry Reporting Server. (Formerly called a Messaging Server)
