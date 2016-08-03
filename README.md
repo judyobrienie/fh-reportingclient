@@ -7,7 +7,14 @@ fh-reportingclient -- The FeedHenry Reporting Client
 [![Dependency Status](https://img.shields.io/david/feedhenry/fh-reportingclient.svg?style=flat-square)](https://david-dm.org/feedhenry/fh-reportingclient)
 [![Known Vulnerabilities](https://snyk.io/test/npm/fh-reportingclient/badge.svg?style=flat-square)](https://snyk.io/test/npm/fh-reportingclient)
 
-
+|                 | Project Info  |
+| --------------- | ------------- |
+| License:        | Apache License, Version 2.0  |
+| Build:          | npm  |
+| Documentation:  | http://docs.feedhenry.com/v3/api/cloud_api.html  |
+| Issue tracker:  | https://issues.jboss.org/projects/FH/summary  |
+| Mailing list:   | [feedhenry-dev](https://www.redhat.com/archives/feedhenry-dev/) ([subscribe](https://www.redhat.com/mailman/listinfo/feedhenry-dev))  |
+| IRC:            | [#feedhenry](https://webchat.freenode.net/?channels=feedhenry) channel in the [freenode](http://freenode.net/) network.  |
 
 ## DESCRIPTION
 
