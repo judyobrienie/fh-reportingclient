@@ -182,3 +182,29 @@ exports.expect_envars_to_override_limits = function(finish){
 
   finish();
 };
+
+exports.test_sync_interval = function(finish) {
+  var clock = sinon.useFakeTimers();
+  process.env.FH_MESSAGING_INTERVAL = 10*1000;
+  process.env.FH_MESSAGING_RETRY_LIMIT = 5;
+  delete process.env.NO_FLUSH_TIMER;
+
+  var syncBatch = sinon.stub();
+  var requestFailedBatch = sinon.spy();
+  var mocks = {
+    './sync':function (){
+      return{
+        syncBatch: syncBatch,
+        requeueFailedBatch: requestFailedBatch
+      };
+    }
+  };
+
+  syncBatch.callsArgWith(1,{});
+  var mbaasRep = proxy('../lib/mbaas-reporting',mocks);
+  clock.tick(11*1000);
+  assert.ok(requestFailedBatch.called);
+  assert.ok(requestFailedBatch.calledWith(5));
+  clock.restore();
+  finish();
+};
