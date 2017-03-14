@@ -1,7 +1,7 @@
 {
   "name": "fh-reportingclient",
   "description": "FH Reporting Client",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "repository": {
     "type": "git",
     "url": "git@github.com:feedhenry/fh-reportingclient.git"
@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "async": "1.5.2",
-    "fh-mbaas-client": "0.15.0",
-    "request": "2.74.0"
+    "fh-mbaas-client": "0.16.5",
+    "request": "2.81.0"
   },
   "man": "./man/fh-reportingclient.1",
   "license": "Apache-2.0",
