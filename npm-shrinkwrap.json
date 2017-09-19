@@ -1,6 +1,6 @@
 {
   "name": "fh-reportingclient",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "dependencies": {
     "async": {
       "version": "1.5.2",
