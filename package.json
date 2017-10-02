@@ -31,10 +31,10 @@
   "devDependencies": {
     "eslint": "^2.7.0",
     "grunt": "^1.0.1",
-    "grunt-fh-build": "^1.0.1",
+    "grunt-fh-build": "^2.0.0",
     "istanbul": "^0.4.3",
-    "turbo-test-runner": "~0.3",
     "proxyquire": "0.4.1",
-    "sinon": "^1.17.1"
+    "sinon": "^1.17.1",
+    "turbo-test-runner": "~0.3"
   }
 }
