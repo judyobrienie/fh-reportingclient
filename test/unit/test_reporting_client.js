@@ -1,5 +1,4 @@
 var proxy = require('proxyquire');
-var sinon = require('sinon');
 var assert = require('assert');
 
 process.env.NO_FLUSH_TIMER = true;
@@ -36,7 +35,7 @@ exports.test_logMessageToMBaaS_ok_openshift3 = function (finish){
        }
   };
 
-  var client = proxy('../lib/fh-reporting',mockMbaasReporting);
+  var client = proxy('../../lib/fh-reporting',mockMbaasReporting);
   client = new client.Reporting(getConfig(true,"openshift3",true,"doesntmatter",null,null));
   client.logMessage("fhact",{"test":"test"}, function (err){
     assert.ok(!err, "did not expect an error");
@@ -58,7 +57,7 @@ exports.test_logMessageToMBaaS_ok_feedhenry = function (finish){
         };
     }
   };
-  var client = proxy('../lib/fh-reporting',mockMbaasReporting);
+  var client = proxy('../../lib/fh-reporting',mockMbaasReporting);
   client = new client.Reporting(getConfig(true,"feedhenry",true,"doesntmatter",null,null));
   client.logMessage("fhact",{"test":"test"}, function (err){
     assert.ok(!err, "did not expect an error");
@@ -79,7 +78,7 @@ exports.test_no_logMessageToMBaaS_os2 = function (finish){
       cb(undefined,{},{"test":"test"});
     }
   };
-  var client = proxy('../lib/fh-reporting',mockMbaasReporting);
+  var client = proxy('../../lib/fh-reporting',mockMbaasReporting);
   client = new client.Reporting(getConfig(true,"openshift",true,"doesntmatter",null,null));
   client.logMessage("fhact",{"test":"test"}, function (err){
     assert.ok(!err, "did not expect an error");
@@ -98,7 +97,7 @@ exports.test_no_logMessageToMBaaS_os3_real_time_not_enabled = function (finish){
         };
     }
   };
-  var client = proxy('../lib/fh-reporting',mockMbaasReporting);
+  var client = proxy('../../lib/fh-reporting',mockMbaasReporting);
   client = new client.Reporting(getConfig(false,"openshift3",true,"doesntmatter",null,null));
   client.logMessage("fhact",{"test":"test"}, function (err,res){
     assert.ok(!err, "did not expect an error");
@@ -117,7 +116,7 @@ exports.test_no_logMessageToMBaaS_feedhenry_real_time_not_enabled = function (fi
         };
     }
   };
-  var client = proxy('../lib/fh-reporting',mockMbaasReporting);
+  var client = proxy('../../lib/fh-reporting',mockMbaasReporting);
   client = new client.Reporting(getConfig(false,"feedhenry",true,"doesntmatter",null,null));
   client.logMessage("fhact",{"test":"test"}, function (err,res){
     assert.ok(!err, "did not expect an error");
@@ -140,7 +139,7 @@ exports.test_log_to_os2_real_time_enabled = function (finish){
       cb(undefined,{},{"test":"test"});
     }
   };
-  var client = proxy('../lib/fh-reporting',mockMbaasReporting);
+  var client = proxy('../../lib/fh-reporting',mockMbaasReporting);
   client = new client.Reporting(getConfig(true,"openshift",false,url,null,null));
   client.logMessage("fhact",{"test":"test"}, function (err,res){
     res = res[1];
@@ -166,7 +165,7 @@ exports.test_no_log_to_02_openshift2_mbaas_real_time_not_enabled = function (fin
         assert.fail("should not have got here");
     }
   };
-  var client = proxy('../lib/fh-reporting',mockMbaasReporting);
+  var client = proxy('../../lib/fh-reporting',mockMbaasReporting);
   client = new client.Reporting(getConfig(false,"openshift",false,url,null,null));
   client.logMessage("fhact",{"test":"test"}, function (err,res){
     assert.ok(! err,"did not expect an error");
@@ -179,7 +178,7 @@ exports.test_no_log_to_02_openshift2_mbaas_real_time_not_enabled = function (fin
 
 exports.test_no_log_to_file_if_no_file_paths_provided_os2 = function (finish){
   var url = "http://somewhere.com";
-  var client = proxy('../lib/fh-reporting',{"fs":{
+  var client = proxy('../../lib/fh-reporting',{"fs":{
     "createWriteStream":function (){
       assert.fail("should not have called this");
     }
@@ -195,7 +194,7 @@ exports.test_no_log_to_file_if_no_file_paths_provided_os2 = function (finish){
 
 exports.test_no_log_to_file_if_no_file_paths_provided_os3 = function (finish){
   var url = "http://somewhere.com";
-  var client = proxy('../lib/fh-reporting',{"fs":{
+  var client = proxy('../../lib/fh-reporting',{"fs":{
     "createWriteStream":function (){
       assert.fail("should not have called this");
     }
@@ -209,7 +208,7 @@ exports.test_no_log_to_file_if_no_file_paths_provided_os3 = function (finish){
 
 exports.test_no_log_to_file_if_no_file_paths_provided_feedhenry = function (finish){
   var url = "http://somewhere.com";
-  var client = proxy('../lib/fh-reporting',{"fs":{
+  var client = proxy('../../lib/fh-reporting',{"fs":{
     "createWriteStream":function (){
       assert.fail("should not have called this");
     }
@@ -224,7 +223,7 @@ exports.test_no_log_to_file_if_no_file_paths_provided_feedhenry = function (fini
 
 exports.test_log_to_file_if_file_paths_provided_feedhenry = function (finish){
   var url = "http://somewhere.com";
-  var client = proxy('../lib/fh-reporting',{"fs":{
+  var client = proxy('../../lib/fh-reporting',{"fs":{
     "createWriteStream":function (path,flags){
       assert.ok(path == "/tmp/backup", "path should be the same");
       assert.ok(flags,"expected flags");
@@ -238,7 +237,7 @@ exports.test_log_to_file_if_file_paths_provided_feedhenry = function (finish){
 };
 
 exports.testGenerateID = function(finish) {
-  var reportingUtils = proxy('../lib/fh-reporting',{}).reportingutils;
+  var reportingUtils = proxy('../../lib/fh-reporting',{}).reportingutils;
   var simpleObj = { one: 'one', two: 'two'};
   var simpleObjExpected = '4770861b901ee195bdb1e85791ae1b11_19700101';
   var simpleGeneratedId = reportingUtils.generateID(simpleObj);
@@ -253,7 +252,7 @@ exports.testGenerateID = function(finish) {
 
 
 exports.testConstructorValidation = function(finish) {
-  var reporting = proxy('../lib/fh-reporting',{});
+  var reporting = proxy('../../lib/fh-reporting',{});
   assert.throws(function () {new reporting.Reporting()});
   assert.throws(function () {new reporting.Reporting({})});
   assert.throws(function () {new reporting.Reporting({cluster:"clustername"})});

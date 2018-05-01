@@ -1,9 +1,6 @@
 var proxy = require('proxyquire');
-var sinon = require('sinon');
 var assert = require('assert');
-var async = require('async');
-var util = require('util');
-var UNDER_TEST = '../lib/sync';
+var UNDER_TEST = '../../lib/sync';
 
 module.exports.test_mbaas_client_init_with_correct_value = function (finish) {
   process.env.FH_INSTANCE = "test instance";

@@ -18,7 +18,7 @@
     "test": "grunt eslint fh-test"
   },
   "engines": {
-    "node": ">=0.4.12"
+    "node": ">=4.9.1"
   },
   "dependencies": {
     "async": "1.5.2",
@@ -29,12 +29,12 @@
   "man": "./man/fh-reportingclient.1",
   "license": "Apache-2.0",
   "devDependencies": {
-    "eslint": "^2.7.0",
-    "grunt": "^1.0.1",
+    "eslint": "^4.19.1",
+    "grunt": "^1.0.2",
     "grunt-fh-build": "^2.0.0",
-    "istanbul": "^0.4.3",
-    "proxyquire": "0.4.1",
-    "sinon": "^1.17.1",
-    "turbo-test-runner": "~0.3"
+    "istanbul": "^0.4.5",
+    "mocha": "^5.1.1",
+    "proxyquire": "^2.0.1",
+    "sinon": "^5.0.2"
   }
 }

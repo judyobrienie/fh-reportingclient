@@ -2,7 +2,6 @@ var proxy = require('proxyquire');
 var sinon = require('sinon');
 var assert = require('assert');
 var async = require('async');
-var util = require('util');
 process.env.NO_FLUSH_TIMER = true;
 exports.test_accept_message_sends_after_n_messages = function (finish){
 
@@ -21,7 +20,7 @@ exports.test_accept_message_sends_after_n_messages = function (finish){
   };
 
   syncBatch.callsArg(1);
-  var mbaasRep = proxy('../lib/mbaas-reporting',mocks);
+  var mbaasRep = proxy('../../lib/mbaas-reporting',mocks);
   mbaasRep = new mbaasRep();
   var calls = [];
   //on the 16 message it will send the previous 15
@@ -58,7 +57,7 @@ exports.test_accept_message_does_not_send_before_n_messages = function (finish){
   };
 
   syncBatch.callsArg(1);
-  var mbaasRep = proxy('../lib/mbaas-reporting',mocks);
+  var mbaasRep = proxy('../../lib/mbaas-reporting',mocks);
   mbaasRep = new mbaasRep();
   var calls = [];
   for(var i=0; i < 15; i++){
@@ -93,7 +92,7 @@ exports.expect_batch_to_be_reset_called_after_sync_done = function (finish){
 
   syncBatch.callsArg(1);
 
-  var mbaasRep = proxy('../lib/mbaas-reporting',mocks);
+  var mbaasRep = proxy('../../lib/mbaas-reporting',mocks);
   mbaasRep = new mbaasRep();
   var calls = [];
   //on the 11 message it will send the previous 15
@@ -133,7 +132,7 @@ exports.expect_add_to_batch_to_be_called_after_sync_error = function (finish){
 
   syncBatch.callsArgWith(1,{});
 
-  var mbaasRep = proxy('../lib/mbaas-reporting',mocks);
+  var mbaasRep = proxy('../../lib/mbaas-reporting',mocks);
 
   mbaasRep = new mbaasRep();
 
@@ -160,7 +159,7 @@ exports.expect_envars_to_override_limits = function(finish){
   process.env.FH_MESSAGING_RETRY_LIMIT = "10";
   process.env.FH_MESSAGING_INTERVAL = "1000";
   process.env.FH_MESSAGING_RETRY_INTERVAL = "2000";
-  var rep = proxy('../lib/mbaas-reporting',{});
+  var rep = proxy('../../lib/mbaas-reporting',{});
   var reporting = new rep();
   assert.equal(20 , reporting.getBatchLimit(),"expected values to match");
   assert.equal(10 , reporting.getRetryLimit(),"expected values to match");
@@ -168,7 +167,7 @@ exports.expect_envars_to_override_limits = function(finish){
   assert.equal(1000 , reporting.getFlushInterval(),"expected values to match");
 
   process.env.FH_MESSAGING_BATCH_LIMIT = "d20sd";
-  rep = proxy('../lib/mbaas-reporting',{});
+  rep = proxy('../../lib/mbaas-reporting',{});
   reporting = new rep();
   //expect default value
   assert.equal(15 , reporting.getBatchLimit(),"expected default value");
@@ -201,7 +200,7 @@ exports.test_sync_interval = function(finish) {
   };
 
   syncBatch.callsArgWith(1,{});
-  var mbaasRep = proxy('../lib/mbaas-reporting',mocks);
+  var mbaasRep = proxy('../../lib/mbaas-reporting',mocks);
   clock.tick(11*1000);
   assert.ok(requestFailedBatch.called);
   assert.ok(requestFailedBatch.calledWith(5));
