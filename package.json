@@ -18,7 +18,7 @@
     "test": "grunt eslint fh-test"
   },
   "engines": {
-    "node": ">=4.9.1"
+    "node": "6.9"
   },
   "dependencies": {
     "async": "1.5.2",
