@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "async": "1.5.2",
+    "bunyan": "1.8.2",
     "fh-mbaas-client": "0.16.5",
-    "request": "2.81.0",
-    "bunyan": "1.8.2"
+    "request": "2.85.0"
   },
   "man": "./man/fh-reportingclient.1",
   "license": "Apache-2.0",
